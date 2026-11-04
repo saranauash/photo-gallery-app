@@ -1,8 +1,12 @@
 package strategy;
 
+import factory.MediaFile;
+
 import java.util.List;
 
-// Common strategy interface for gallery sorting algorithms
+// Strategy interface for sorting the gallery
 public interface SortStrategy {
-    void sort(List<String> photoList);
+    void sort(List<MediaFile> mediaList);
+
+    String getName();
 }

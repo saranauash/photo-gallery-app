@@ -1,14 +1,20 @@
 package factory;
 
-public class PhotoMedia implements MediaFile {
-    private String name;
+import java.time.LocalDate;
 
-    public PhotoMedia(String name) {
-        this.name = name;
+public class PhotoMedia extends BaseMedia {
+
+    public PhotoMedia(String name, LocalDate date, int rating) {
+        super(name, date, rating);
     }
 
     @Override
     public void open() {
         System.out.println("Displaying photo: " + name);
+    }
+
+    @Override
+    public String getType() {
+        return "Photo";
     }
 }

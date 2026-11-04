@@ -1,14 +1,20 @@
 package factory;
 
-public class VideoMedia implements MediaFile {
-    private String name;
+import java.time.LocalDate;
 
-    public VideoMedia(String name) {
-        this.name = name;
+public class VideoMedia extends BaseMedia {
+
+    public VideoMedia(String name, LocalDate date, int rating) {
+        super(name, date, rating);
     }
 
     @Override
     public void open() {
         System.out.println("Playing video preview: " + name);
+    }
+
+    @Override
+    public String getType() {
+        return "Video";
     }
 }

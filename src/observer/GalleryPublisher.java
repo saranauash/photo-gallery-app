@@ -3,7 +3,7 @@ package observer;
 import java.util.ArrayList;
 import java.util.List;
 
-// Subject (Publisher) maintaining observer registrations and event broadcasts
+// Subject (publisher): keeps the list of observers and notifies them
 public class GalleryPublisher {
     private List<GalleryObserver> observers = new ArrayList<>();
 
@@ -15,9 +15,9 @@ public class GalleryPublisher {
         observers.remove(observer);
     }
 
-    public void notifyObservers(String message) {
+    public void notifyObservers(String eventType, String message) {
         for (GalleryObserver observer : observers) {
-            observer.onGalleryChanged(message);
+            observer.onGalleryChanged(eventType, message);
         }
     }
 }

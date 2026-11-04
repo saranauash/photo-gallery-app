@@ -1,6 +1,6 @@
 package decorator;
 
-// Base abstract decorator class wrapping an Image instance
+// Base decorator: holds the wrapped image and passes render() to it
 public abstract class ImageDecorator implements Image {
     protected Image wrappedImage;
 

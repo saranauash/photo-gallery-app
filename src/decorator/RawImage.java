@@ -1,6 +1,6 @@
 package decorator;
 
-// Concrete component representing an unprocessed photo
+// Concrete component: photo without any filters
 public class RawImage implements Image {
     private String filename;
 

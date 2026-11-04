@@ -1,6 +1,6 @@
 package decorator;
 
-// Base component interface for all image objects
+// Component interface for all images
 public interface Image {
     String render();
 }

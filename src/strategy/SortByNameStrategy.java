@@ -1,12 +1,17 @@
 package strategy;
 
+import factory.MediaFile;
+
 import java.util.List;
 
-// Concrete strategy: sorts files alphabetically by name
 public class SortByNameStrategy implements SortStrategy {
     @Override
-    public void sort(List<String> photoList) {
-        photoList.sort((a, b) -> a.toLowerCase().compareTo(b.toLowerCase()));
-        System.out.println("Sorted gallery by Name.");
+    public void sort(List<MediaFile> mediaList) {
+        mediaList.sort((a, b) -> a.getName().toLowerCase().compareTo(b.getName().toLowerCase()));
+    }
+
+    @Override
+    public String getName() {
+        return "Name (A-Z)";
     }
 }
