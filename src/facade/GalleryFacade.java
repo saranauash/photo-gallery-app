@@ -3,25 +3,23 @@ package facade;
 import java.util.ArrayList;
 import java.util.List;
 
-// Imports from other packages
 import factory.*;
 import observer.*;
 import decorator.*;
 import strategy.*;
 import builder.*;
 
-// Facade encapsulating complex pattern subsystems into straightforward application methods
 public class GalleryFacade {
     private List<String> photos = new ArrayList<>();
     private GalleryPublisher publisher = new GalleryPublisher();
     private SortStrategy sortStrategy;
 
     public GalleryFacade() {
-        // Register observers
+        // Подключаем слушателей (Observer)
         publisher.addObserver(new UIStatusNotification());
         publisher.addObserver(new ImageCounterListener());
 
-        // Set default strategy
+        // Устанавливаем стратегию по умолчанию
         this.sortStrategy = new SortByDateStrategy();
     }
 
@@ -32,7 +30,6 @@ public class GalleryFacade {
         } else {
             factory = new PhotoFactory();
         }
-
 
         MediaFile media = factory.createMedia(name);
         media.open();
@@ -64,4 +61,4 @@ public class GalleryFacade {
 
         System.out.println(config);
     }
-}...
+}
